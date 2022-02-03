@@ -1,0 +1,13 @@
+---
+ - hosts: localhost
+   gather_facts: no
+   tasks:
+    - name: archive container image as a tarball
+      docker_image:
+       name: apache-http:v1.0
+       archive_path: ~/Docker_Images/apache-http_v1_0.tar
+       source: pull
+       state: present
+    - name: fetch archived image
+      fetch: ~/Docker_Images/apache-http_v1_0.tar
+      flat: true

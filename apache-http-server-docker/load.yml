@@ -1,0 +1,11 @@
+---
+ - hosts: localhost
+   gather_facts: no
+   tasks:
+    - name: load container from tarball
+      docker_image:
+       name: apache-http:v1.0
+       load_path: ~/Docker_Images/apache-http_v1_0.tar
+       state: present
+       source: load
+       
