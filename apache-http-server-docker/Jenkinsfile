@@ -1,5 +1,5 @@
 pipeline {
-    node any
+    node {label 'localhost'}
     stages {
         stage('Build') {
             steps {
