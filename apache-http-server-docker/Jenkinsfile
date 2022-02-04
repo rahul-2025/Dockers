@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'ansible-playbook docker-image.yml'
+                sh 'sudo ansible-playbook docker-image.yml'
             }
         }
     }
