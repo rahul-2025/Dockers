@@ -1,0 +1,10 @@
+pipeline {
+    node any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'ansible-playbook docker-image.yml'
+            }
+        }
+    }
+}

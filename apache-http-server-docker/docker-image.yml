@@ -1,0 +1,24 @@
+---
+ - name: This task is to create an docker image
+   hosts: localhost
+   gather_facts: yes
+   tasks:
+    - name: build a container image
+      docker_image:
+       name: apache-http_v1.0
+       build:
+        path: ./apache-http-server-docker
+        source: build
+       state: present
+    - name: archive container image as a tarball
+      docker_image:
+       name: apache-http_v1.0
+       archive_path: ./apache-http-server-docker/apache-http_v1_0.tar
+       source: pull
+       state: present
+    - name: load container from tarball
+      docker_image:
+       name: apache-http_v1.0
+       load_path: ./apache-http-server-docker/apache-http_v1_0.tar
+       state: present
+       source: load
